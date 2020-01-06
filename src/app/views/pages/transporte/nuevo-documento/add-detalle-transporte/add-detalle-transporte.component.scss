@@ -1,0 +1,26 @@
+.nav-tabs .nav-item .nav-link {
+    color: #484d65;
+    font-size: 14px;
+}
+
+.nav-item {
+    color: #484d65;
+    font-size: 14px;
+}
+
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+    color: #670000!important;
+    background-color: #fff;
+    border-color: #670000 #670000 #fff;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #670000;
+}
+
+#myTab>.nav-tabs .nav-link:focus,
+.nav-tabs .nav-link:hover {    
+    color: #670000;
+    border-color: #670000 #670000 #fff;
+}

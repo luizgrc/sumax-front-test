@@ -1,0 +1,227 @@
+<mat-tab-group>
+  <mat-tab label="FINANZAS">
+
+    <body>
+      <div align="center">
+
+        <div class="ex2">
+          <table border=0 style=" width:70%; margin:8%;  border-collapse: separate " CELLPADDING="10">
+
+            <tr  (click)="ventasPage()">
+              <td align="center"><img src="https://img.icons8.com/pastel-glyph/64/000000/invoice-1.png">
+              </td>
+
+              <td>
+                <a class="btn">
+                  <h4>Ventas</h4>
+                </a>
+                <p>Elaboración de Proformas Aduanas</p>
+              </td>
+
+             <td><img src="https://img.icons8.com/wired/64/000000/buy.png">
+              </td>
+                <td>
+                <a (click)="returnPage()" class="btn">
+                  <h4>Compras</h4>
+                </a>
+                <p  style=width:150% >Información del estado de levante de la DAM</p>
+              </td>
+            </tr>
+     
+            <tr>
+              <td align="center">
+                <img src="https://img.icons8.com/wired/64/000000/accounting.png">
+              <td style=width:50%> 
+                <a (click)="returnPage()" class="btn">
+                  <h4>Contabilidad</h4>
+                </a>
+                <p>Gestión de Declaraciones Aduaneras de Mercancia</p>
+              </td>
+             
+             
+              <td><img src="https://img.icons8.com/wired/64/000000/bank-building.png">
+              </td>
+              <td style=width:100%>
+                <a (click)="returnPage()" class="btn">
+                  <h4>Bancos</h4>
+                </a>
+                <p style=width:100% >Declaración electrónica de información</p>
+              </td>
+          </table>
+        </div>
+      </div>
+    </body>
+  </mat-tab>
+  <mat-tab label="ADUANAS">
+
+    <body>
+      <div align="center">
+
+        <div class="ex2">
+          <table border=0 style=" width:70%; margin:8%;  border-collapse: separate " CELLPADDING="10">
+
+            <tr  >
+              <td align="center"><img src="https://img.icons8.com/wired/64/000000/wallet.png">
+              </td>
+
+              <td>
+                <a (click)="returnPage()" class="btn">
+                  <h4>Presupuesto</h4>
+                </a>
+                <p>Elaboración de Proformas Aduanas</p>
+              </td>
+
+             <td><img src="https://img.icons8.com/wired/64/000000/find-user-male.png">
+              </td>
+                <td>
+                <a (click)="returnPage()" class="btn">
+                  <h4>Seguimiento</h4>
+                </a>
+                <p  style=width:150% >Información del estado de levante de la DAM</p>
+              </td>
+            </tr>
+     
+            <tr>
+              <td align="center">
+                <img src="https://img.icons8.com/ios/64/000000/performance-macbook.png">
+              <td style=width:50%> 
+                <a (click)="returnPage()" class="btn">
+                  <h4>Operaciones</h4>
+                </a>
+                <p>Gestión de Declaraciones Aduaneras de Mercancia</p>
+              </td>
+             
+             
+              <td><img src="https://img.icons8.com/wired/64/000000/guarantee.png">
+              </td>
+              <td style=width:100%>
+                <a (click)="returnPage()" class="btn">
+                  <h4 >Sistema de Despacho Aduanero</h4>
+                </a>
+                <p style=width:100% >Declaración electrónica de información</p>
+              </td>
+          </table>
+        </div>
+      </div>
+    </body>
+  </mat-tab>
+
+
+  <mat-tab label="CARGA">
+
+    <div align=center>
+
+      <div class="ex2">
+        <table border=0 style=" width:80%; margin:3%;  border-collapse: separate " CELLPADDING="10">
+
+          <tr>
+
+            <td align="center"><img src="https://img.icons8.com/wired/64/000000/agreement.png"></td>
+           
+            <TD>
+              
+              <a (click)="returnPage()" class="btn">
+                <h4>Acuerdos comerciales</h4>
+              </a>
+              <p>Negociación de tarifas y condiciones con proveedore de servicio</p>
+            </TD>
+
+            <td align="center"><img src="https://img.icons8.com/dotty/80/000000/water-transportation.png"></td>
+            <td>
+              <a (click)="returnPage()" class="btn">
+                <h4>Operaciones</h4>
+              </a>
+              <p>
+                Gestión de Cotizaciones y Documentos de embarque de transporte
+                internacional
+              </p>
+            </td>
+
+          </tr>
+    
+          <tr>
+            <td align="center"><img src="https://img.icons8.com/wired/64/000000/group-of-projects.png">
+            </td>
+            <td>
+              <a (click)="returnPage()" class="btn">
+                <h4>Reporte de Multas</h4>
+              </a>
+              <p>
+                Sanciones y/o infracciones cometidas en el proceso de transmisión
+              </p>
+            </td>
+
+            <td align="center"><img src="https://img.icons8.com/wired/64/000000/widescreen-tv.png"></td>
+            <td>
+              <a (click)="returnPage()" class="btn">
+                <h4>Teledesglose</h4>
+              </a>
+              <p>
+                Transmisiones electrónicas de manifiesto consolidado y
+                desconsolidado
+              </p>
+            </td>
+          </tr>
+
+        
+          <tr>
+            <td align="center"><img src="https://img.icons8.com/wired/64/000000/smartphone-tablet.png">
+            </td>
+            <td>
+              <a (click)="returnPage()" class="btn">
+                <h4>Desglomóvil</h4>
+              </a>
+              <p>
+                Programación de operaciones para transmisión automática de
+                manifiesto
+              </p>
+          </tr>
+
+
+        </table>
+      </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="TRANSPORTE">
+
+    <body>
+      <div align="center">
+
+        <div class="ex2">
+          <table border=0 style=" width:70%; margin:8%;  border-collapse: separate " CELLPADDING="10">
+
+            <tr>
+              <td align="center"><img src="https://img.icons8.com/wired/64/000000/interstate-truck.png">
+              </td>
+
+              <td>
+                <a (click)="returnPage()" class="btn">
+                  <h4>Operaciones</h4>
+                </a>
+                <p>Gestión de Órdenes de Servicio,Control de viajes y Servicios adicionales</p>
+              </td>
+
+              <td align="center"><img src="https://img.icons8.com/dotty/80/000000/statistics.png">
+              </td>
+              
+              <td>
+                <a (click)="returnPage()" class="btn">
+                  <h4>Reporteador</h4>
+                </a>
+                <p>Reportes personalizados de información operativa</p>
+              </td>
+            </tr>
+
+          
+          </table>
+        </div>
+      </div>
+    </body>
+
+
+
+
+
+  </mat-tab>
+</mat-tab-group>

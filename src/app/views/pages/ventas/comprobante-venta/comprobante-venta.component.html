@@ -1,0 +1,123 @@
+<kt-portlet>
+	<kt-portlet-header [class]="'kt-portlet__head--lg'">
+
+		<ng-container ktPortletTitle>
+			<h3 class="kt-portlet__head-title">
+				<span>{{titulo}}</span>
+			</h3>
+		</ng-container>
+
+		<ng-container ktPortletTools>
+			<!-- <button mat-raised-button (click)="nuevoDocumento()" color="primary" type="button">Nueva Factura</button> -->
+			<button mat-icon-button color="basic" matTooltip="Nuevo Documento" (click)="nuevoDocumento()">
+                <mat-icon class="button-icon">insert_drive_file</mat-icon>
+            </button>
+			<button mat-icon-button color="primary" matTooltip="Editar documento seleccionado" (click)="editarDocumento()">
+                <mat-icon class="button-icon">edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" matTooltip="Eliminar documento(s) seleccionado(s)">
+                <mat-icon class="button-icon">delete</mat-icon>
+            </button>
+		</ng-container>
+	</kt-portlet-header>
+	<kt-portlet-body>
+		<!-- FILTROS Y ACCIONES MASIVAS -->
+		<div class="kt-form mb-2">
+			<!-- FILTROS -->
+			<mat-accordion>
+				<mat-expansion-panel [expanded]="'true'">
+					<mat-expansion-panel-header>
+						<mat-panel-title>
+							Filtros
+						</mat-panel-title>
+						<mat-panel-description>
+							Seleccione los filtros que desea aplicar a la búsqueda
+						</mat-panel-description>
+					</mat-expansion-panel-header>
+
+					<div class="kt-form__filtration">
+						<div class="row align-items-center">
+							<div class="form-group col-md-3 col-sm-6 col-12 d-flex flex-column mb-0 py-2">
+								<label for="serie" class="mb-0 p-0 primary-sintad">Serie : </label>
+								<div class="d-flex p-0 group-input-button">
+									<select class="form-control form-control-sm" id="serie" [(ngModel)]="searchVenta.idSerie">
+										<option class="sumax-option" value="0">Seleccione</option>
+										<option class="sumax-option" *ngFor="let sveSerie of series" [(ngValue)]="sveSerie.idSerie">
+											{{ sveSerie.nroSerie }}</option>
+									</select>
+
+									<input type="text" class="form-control form-control-sm col-8 ml-1"
+										placeholder="Número de documento" [(ngModel)]="searchVenta.nroVenta">
+								</div>
+							</div>
+							<div class="form-group col-md-3 col-sm-6 col-12 d-flex flex-column mb-0 py-2">
+								<label for="cliente" class="mb-0 p-0 primary-sintad">Cliente : </label>
+								<div class="d-flex p-0 group-input-button">
+									<input type="text" class="form-control form-control-sm col-12 ml-1"
+										[ngbTypeahead]="search" (focus)="focus$.next($event.target.value)"
+										(click)="click$.next($event.target.value)" #instance="ngbTypeahead"
+										[inputFormatter]="inputFormatter" [resultFormatter]="resultFormatter"
+										placeholder=" Nombre de cliente" container="body" [(ngModel)]="clienteSelected">
+								</div>
+							</div>
+
+							<div class="form-group col-md-3 col-sm-6 col-12 d-flex flex-column mb-0 py-2">
+								<label for="inicio" class="mb-0 p-0 primary-sintad">Fecha Inicio : </label>
+								<div class="d-flex p-0 group-input-button">
+									<input class="form-control form-control-sm rounded-left use-input" container="body"
+										placeholder="yyyy-mm-dd" name="inicio" [(ngModel)]="searchVenta.fchDesde" ngbDatepicker
+										#dtInicio="ngbDatepicker" id="inicio">
+									<button type="button" class="btn btn-f1 p-0 rounded-0 use-button"
+										(click)="dtInicio.toggle()"><i class="la la-calendar" aria-hidden="true"></i></button>
+								</div>
+							</div>
+							<div class="form-group col-md-3 col-sm-6 col-12 d-flex flex-column mb-0 py-2">
+								<label for="final" class="mb-0 p-0 primary-sintad">Fecha Final : </label>
+								<div class="d-flex p-0 group-input-button">
+									<input class="form-control form-control-sm rounded-left use-input" container="body"
+										placeholder="yyyy-mm-dd" name="final" [(ngModel)]="searchVenta.fchHasta" ngbDatepicker
+										#dtFinal="ngbDatepicker" id="final">
+									<button type="button" class="btn btn-f1 p-0 rounded-0 use-button"
+										(click)="dtFinal.toggle()"><i class="la la-calendar" aria-hidden="true"></i></button>
+								</div>
+							</div>
+						</div>
+						<div class="row align-items-center">
+
+							<div class="form-group col-md-3 col-sm-6 col-12 d-flex flex-column mb-0 py-2">
+								<label for="usuario" class="mb-0">Usuarios : </label>
+								<select class="form-control form-control-sm" id="usuario" [(ngModel)]="searchVenta.idUsuario">
+									<option class="sumax-option" value="0">Seleccione</option>
+									<option class="sumax-option" *ngFor="let sciUsuario of usuarios" [(ngValue)]="sciUsuario.idUsuario">
+										{{ sciUsuario.usuario }}</option>
+								</select>
+							</div>
+							<div class="form-group col-md-3 col-sm-6 col-12 d-flex flex-column mb-0 py-2">
+								<label for="estado" class="mb-0">Estados : </label>
+								<select class="form-control form-control-sm" id="estado" [(ngModel)]="searchVenta.idEstado">
+									<option class="sumax-option" value="0" selected="true">Seleccione</option>
+									<option class="sumax-option" *ngFor="let sveEstado of estados" [(ngValue)]="sveEstado.idEstado">
+										{{ sveEstado.nombre }}</option>
+								</select>
+							</div>
+							<button mat-mini-fab color="primary" class="ml-auto mr-4 mt-4" (click)="findVentas()">
+								<i class="material-icons"> search </i></button>
+						</div>
+					</div>
+				</mat-expansion-panel>
+			</mat-accordion>
+		</div>
+		<!-- TABLA -->
+		<mat-card>
+			<div class="mat-table__wrapper">
+				<div class="table-responsive">
+					<ag-grid-angular #agGrid id="myGrid" style="width: 100%;" class="ag-theme-balham"
+						[rowData]="rowData" [columnDefs]="columnDefs" [domLayout]="domLayout"
+						(gridReady)="onGridReady($event)" [pagination]="true" [suppressRowClickSelection]="true" [rowSelection]="rowSelection"
+						[overlayLoadingTemplate]="overlayLoadingTemplate" (firstDataRendered)="onFirstDataRendered($event)">
+					</ag-grid-angular>
+				</div>
+			</div>
+		</mat-card>
+	</kt-portlet-body>
+</kt-portlet>

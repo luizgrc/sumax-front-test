@@ -1,0 +1,55 @@
+<div class="kt-form container-fluid">
+    <div class="row border-top">
+        <div class="col-lg-4 col-md-12 col-sm-12 p-1">
+            <h6 class="mt-2">Ingrese detalle de documento:</h6>
+            <div class="py-2">
+                <div class="form-group col-lg-12 col-md-3 col-sm-3 d-flex flex-column my-2 pr-2">
+                    <label for="tipoRelacion" class="mb-0 p-0">Tipo de Relación :</label>
+                    <select class="form-control form-control-sm" name="tipoRelacion" id="tipoRelacion">
+                        <option value="1">Documento Asociado</option>
+                        <option value="2">Guía de Remisión</option>
+                    </select>
+                </div>
+                <div class="form-group col-lg-12 col-md-3 col-sm-3 d-flex flex-column my-2 pr-2">
+                    <label for="tipoDocRelacionado" class="mb-0 p-0">Tipo de Documento Relacionado :</label>
+                    <select class="form-control form-control-sm" name="tipoDocRelacionado" id="tipoDocRelacionado">
+                        <option value="1">Factura</option>
+                        <option value="2">Boleta</option>
+                        <option value="3">Nota de crédito</option>
+                        <option value="4">Nota de débito</option>
+                        <option value="5">Guía de remisión</option>
+                    </select>
+                </div>
+                <div class="form-group col-lg-12 col-md-2 col-sm-2 d-flex flex-column my-2 pr-2">
+                    <label for="nroDcto" class="mb-0 p-0">Número de Documento :</label>
+                    <input type="text" name="nroDcto" class="form-control form-control-sm" placeholder="FFFF-00000000">
+                </div>
+                <div class="form-group col-lg-12 col-md-2 col-sm-2 d-inline-flex flex-row my-2 mx-auto">
+                    <button mat-icon-button matTooltip="Agregar Detalle" color="primary" class="button-icon col-md-4">
+                        <mat-icon>add_circle</mat-icon>
+                    </button>
+                    <button id="editar" mat-icon-button matTooltip="Editar detalle seleccionado" color="basic"
+                        class="button-icon col-md-4">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button matTooltip="Eliminar detalles seleccionados" color="warn"
+                        class="button-icon col-md-4 red-button">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-12 col-sm-12 mb-auto pt-5">
+            <div class="mat-table__wrapper">
+                <div class="table-responsive">
+                    <ag-grid-angular #agGrid id="myGrid" style="width: 95%;" class="ag-theme-balham mx-auto" [rowData]="rowData"
+                        [columnDefs]="columnDefs" [domLayout]="domLayout" (gridReady)="onGridReady($event)"
+                        [loadingCellRenderer]="customLoadingCellRenderer" [loadingCellRendererParams]="loadingCellRendererParams"
+                        [pagination]="true" [suppressRowClickSelection]="true" [rowSelection]="rowSelection">
+                    </ag-grid-angular>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
+

@@ -1,0 +1,43 @@
+@import "sass/pages/wizard/wizard-1";
+
+.kt-wizard-v1__nav-items {
+    width: 100% !important;
+}
+
+.kt-wizard-v1__nav-icon {
+    font-size: 2rem !important;
+}
+
+.kt-wizard-v1__nav-body {
+    padding: 0rem 0rem .5rem !important;
+}
+
+#kt_form {
+    width: 90%;
+    padding: 1rem;
+}
+
+.kt-heading {
+    margin: 0.5rem;
+    text-align: center;
+}
+
+.kt-wizard-v1__form {
+    margin-top: 1rem !important;
+}
+
+@media (max-width: 992px) {
+    #kt_form {
+        width: 100%;
+        padding: 1rem;
+    }
+}
+
+.kt-form__actions {
+    padding: 0;
+}
+
+.kt-wizard-v1[_ngcontent-vgt-c10] .kt-wizard-v1__wrapper[_ngcontent-vgt-c10] .kt-form[_ngcontent-vgt-c10] .kt-wizard-v1__content[_ngcontent-vgt-c10] {
+    padding-bottom: 1rem!important;
+    margin-bottom: 1rem!important;
+}

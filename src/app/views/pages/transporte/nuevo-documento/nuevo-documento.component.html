@@ -1,0 +1,121 @@
+<kt-portlet>
+	<kt-portlet-header [class]="'kt-portlet__head--lg'">
+
+		<ng-container ktPortletTitle>
+			<h3 class="kt-portlet__head-title">
+				Nueva Orden
+			</h3>
+		</ng-container>
+
+		<ng-container ktPortletTools>
+
+			<button mat-icon-button color="primary" matTooltip="Guardar documento">
+				<mat-icon class="button-icon">done</mat-icon>
+			</button>
+			<button mat-icon-button color="warn" (click)="returnPage()" matTooltip="Cancelar registro">
+				<mat-icon class="button-icon">close</mat-icon>
+			</button>
+
+			<!-- <button mat-raised-button color="primary" type="button">Regresar</button> -->
+		</ng-container>
+	</kt-portlet-header>
+	<kt-portlet-body>
+
+		<!-- <div id="moreDetails"> -->
+		<!--begin: Wizard -->
+		<div #wizard class="kt-grid kt-wizard-v1 kt-wizard-v1--white" id="kt_wizard_v1"
+			data-ktwizard-state="step-first">
+			<div class="kt-grid__item">
+				<!--begin: Form Wizard Nav -->
+				<div class="kt-wizard-v1__nav">
+					<div class="kt-wizard-v1__nav-items">
+						<a class="kt-wizard-v1__nav-item" href="javascript:;" data-ktwizard-type="step"
+							data-ktwizard-state="current">
+							<div class="kt-wizard-v1__nav-body">
+								<div class="kt-wizard-v1__nav-icon">
+									<i class="flaticon-bus-stop"></i>
+								</div>
+								<div class="kt-wizard-v1__nav-label">
+									1) Datos Generales
+								</div>
+							</div>
+						</a>
+						<a class="kt-wizard-v1__nav-item" href="javascript:;" data-ktwizard-type="step">
+							<div class="kt-wizard-v1__nav-body">
+								<div class="kt-wizard-v1__nav-icon">
+									<i class="flaticon-list"></i>
+								</div>
+								<div class="kt-wizard-v1__nav-label">
+									2) Detalle de la Orden
+								</div>
+							</div>
+						</a>
+						<a class="kt-wizard-v1__nav-item" href="javascript:;" data-ktwizard-type="step">
+							<div class="kt-wizard-v1__nav-body">
+								<div class="kt-wizard-v1__nav-icon">
+									<i class="flaticon-responsive"></i>
+								</div>
+								<div class="kt-wizard-v1__nav-label">
+									3) Vista previa
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="kt-grid__item kt-grid__item--fluid kt-wizard-v1__wrapper">
+				<form class="kt-form" id="kt_form">
+					<div class="kt-wizard-v1__content mb-3 pb-3" data-ktwizard-type="step-content"
+						data-ktwizard-state="current">
+						<div class="kt-form__section kt-form__section--first">
+							<div class="kt-wizard-v1__form">
+								<kt-cabecera-transporte></kt-cabecera-transporte>
+							</div>
+						</div>
+					</div>
+
+					<div class="kt-wizard-v1__content mb-3 pb-3" data-ktwizard-type="step-content">
+						<div class="kt-form__section kt-form__section--first">
+							<div class="kt-wizard-v1__form">
+
+								<div class="row pt-2 pb-4">
+									<div class="form-group col-md-4 col-sm-4 col-6 d-flex flex-column m-0 p-1">
+										<label for="totalBulto" class="mb-0 p-0 font-weight-bold">Tipo de Servicio:
+										</label>
+										<h6 type="text" name="totalBulto">Directa</h6>
+									</div>
+									<div class="form-group col-md-4 col-sm-4 col-6 d-flex flex-column m-0 p-1">
+										<label for="totalBulto" class="mb-0 p-0 font-weight-bold">Tipo de Envío:
+										</label>
+										<h6 type="text" name="totalBulto">Contenedor</h6>
+									</div>
+									<div class="d-flex justify-content-end align-items-end ml-auto p-1">
+										<button mat-icon-button color="primary" (click)="openDialog()">
+											<mat-icon class="button-icon">add</mat-icon>
+										</button>
+										<button mat-icon-button color="warn" matTooltip="Modificar Detalle">
+											<mat-icon class="button-icon">edit</mat-icon>
+										</button>
+
+										<button mat-icon-button color="warn" matTooltip="Eliminar Detalle">
+											<mat-icon class="button-icon">delete</mat-icon>
+										</button>
+									</div>
+								</div>
+								<kt-detalle-transporte></kt-detalle-transporte>
+							</div>
+						</div>
+					</div>
+
+					<div class="kt-wizard-v1__content mb-3 pb-3" data-ktwizard-type="step-content">
+						<div class="kt-form__section kt-form__section--first">
+							<div class="kt-wizard-v1__form">
+								<kt-preview-transporte></kt-preview-transporte>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</kt-portlet-body>
+</kt-portlet>

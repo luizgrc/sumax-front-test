@@ -1,0 +1,18 @@
+<div class="row row-no-padding row-col-separator-xl">
+	<div class="col-xl-4" *ngFor="let group of data">
+		<div class="kt-widget1 p-3">
+			<ng-container *ngFor="let item of group.totales">
+				<ng-container [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{item: item}"></ng-container>
+			</ng-container>
+		</div>
+		<ng-template #itemTemplate let-item="item">
+			<div class="kt-widget1__item">
+				<div class="kt-widget1__info">
+					<h3 class="kt-widget1__title">{{item.title}}</h3>
+					<span class="kt-widget1__desc">{{item.desc}}</span>
+				</div>
+				<span class="kt-widget1__number" [ngClass]="item.valueClass">{{item.value}}</span>
+			</div>
+		</ng-template>
+	</div>
+</div>

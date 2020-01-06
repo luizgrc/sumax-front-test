@@ -1,0 +1,81 @@
+<div class="kt-form container-fluid">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 p-1 border-top">
+            <h6 class="mt-2">Ingrese detalle de documento:</h6>
+            <div class="row py-2">
+                <div class="form-group col-xl-1 col-lg-1 col-md-2 col-sm-2 d-flex flex-column mb-0 pr-2">
+                    <label for="item" class="mb-0 p-0">Item:</label>
+                    <input type="text" name="item" class="form-control form-control-sm" disabled>
+                </div>
+                <div class="form-group col-xl-1 col-lg-2 col-md-3 col-sm-3 d-flex flex-column mb-0 pr-2">
+                    <label for="concepto" class="mb-0 p-0">Concepto : </label>
+                    <div class="d-flex p-0 group-input-button">
+                        <input type="text" class="form-control form-control-sm rounded-left use-input"
+                            placeholder="Código" id="concepto">
+                        <button type="button" class="btn btn-f1 p-0 rounded-0 use-button">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group col-xl-2 col-lg-4 col-md-4 col-sm-4 d-flex flex-column mb-0 pr-2">
+                    <label for="descripcion" class="mb-0 p-0">Descripción :</label>
+                    <input type="text" class="form-control form-control-sm" name="descripcion" disabled
+                        placeholder="Descripción concepto">
+                </div>
+                <div class="form-group col-xl-2 col-lg-3 col-md-3 col-sm-3 d-flex flex-column mb-0 pr-2">
+                    <label for="afectacion" class="mb-0 p-0">Afectación :</label>
+                    <select class="form-control form-control-sm" name="afectacion" id="afectacion">
+                        <option value="1">Gravado</option>
+                        <option value="2">Exonerado</option>
+                        <option value="3">Inafecto</option>
+                    </select>
+                </div>
+                <div class="form-group col-xl-1 col-lg-2 col-md-2 col-sm-2 d-flex flex-column mb-0 pr-2">
+                    <label for="cantidad" class="mb-0 p-0">Cantidad :</label>
+                    <input type="text" name="cantidad" class="form-control form-control-sm" placeholder="Cantidad">
+                </div>
+                <div class="form-group col-xl-1 col-lg-2 col-md-2 col-sm-2 d-flex flex-column mb-0 pr-2">
+                    <label for="valorUnit" class="mb-0 p-0">Valor Unit.:</label>
+                    <input type="text" name="valorUnit" class="form-control form-control-sm" placeholder="0.00">
+                </div>
+                <div class="form-group col-xl-1 col-lg-2 col-md-2 col-sm-2 d-flex flex-column mb-0 pr-2">
+                    <label for="impuestoUnit" class="mb-0 p-0">Impuesto Unit.:</label>
+                    <input type="text" name="impuestoUnit" class="form-control form-control-sm" placeholder="0.00">
+                </div>
+                <div class="form-group col-xl-1 col-lg-2 col-md-2 col-sm-2 d-flex flex-column mb-0 pr-2">
+                    <label for="precioTotal" class="mb-0 p-0">Precio Total:</label>
+                    <input type="text" name="precioTotal" class="form-control form-control-sm" placeholder="0.00">
+                </div>
+                <div class="form-group col-xl-1 col-lg-2 col-md-2 col-sm-2 d-flex flex-column mb-0 pr-2">
+                    <label for="descuento" class="mb-0 p-0">Descuento:</label>
+                    <input type="text" name="descuento" class="form-control form-control-sm" placeholder="0.00">
+                </div>
+                <div class="form-group col-xl-1 col-lg-2 col-md-2 col-sm-2 d-inline-flex flex-row mb-0 my-auto">
+                    <button mat-icon-button matTooltip="Agregar Detalle" color="primary" class="button-icon col-md-4 col-sm-4">
+                        <mat-icon>add_circle</mat-icon>
+                    </button>
+                    <button id="editar" mat-icon-button matTooltip="Editar detalle seleccionado" color="basic"
+                        class="button-icon col-md-4 col-sm-4">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button matTooltip="Eliminar detalles seleccionados" color="warn"
+                        class="button-icon col-md-4 col-sm-4 red-button">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="mat-table__wrapper">
+    <div class="table-responsive">
+        <ag-grid-angular #agGrid id="myGrid" style="width: 100%;" class="ag-theme-balham" [rowData]="rowData"
+            [columnDefs]="columnDefs" [domLayout]="domLayout" (gridReady)="onGridReady($event)"
+            [loadingCellRenderer]="customLoadingCellRenderer" [loadingCellRendererParams]="loadingCellRendererParams"
+            [pagination]="true" [suppressRowClickSelection]="true" [rowSelection]="rowSelection">
+        </ag-grid-angular>
+    </div>
+</div>
+<kt-totales-venta></kt-totales-venta>
+

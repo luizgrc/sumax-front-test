@@ -1,0 +1,257 @@
+<h3 mat-dialog-title class="text-center my-2">Registrar Detalles</h3>
+<div mat-dialog-content>
+    <div class="modal-body pt-0">
+    <div class="tab-content" id="nav-tabContent">
+    <ngb-tabset>
+        <ngb-tab title="Remitente / Punto de Partida">
+            <ng-template ngbTabContent>
+                <div class="row">
+                    <div class="form-group col-md-4 col-sm-4 d-flex flex-column mb-0 p-2">
+                        <label for="codigoRemitente" class="mb-0 p-0 primary-sintad">Código del
+                            remitente : </label>
+                        <div class="d-flex p-0 group-input-button">
+                            <input type="text" class="form-control form-control-sm use-input" placeholder="Código"
+                                name="codigoRemitente">
+                            <button type="button" class="btn btn-f1 p-0 rounded-0 use-button" (click)="findSerie()">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4 col-sm-4 d-flex flex-column mb-0 p-2">
+                        <label for="tipoIdentificacion" class="mb-0 p-0">Tipo
+                            Identificación: </label>
+                        <input type="text" class="form-control form-control-sm" placeholder="Tipo Identificación"
+                            name="tipoIdentificacion">
+                    </div>
+                    <div class="form-group col-md-4 col-sm-4 d-flex flex-column mb-0 p-2">
+                        <label for="numeroIdentificacion" class="mb-0 p-0">Número
+                            Identificación:
+                        </label>
+                        <input type="text" class="form-control form-control-sm" placeholder="Número Identificación"
+                            name="numeroIdentificacion">
+                    </div>
+                    <div class="form-group col-md-6 col-sm-6 d-flex flex-column mb-0 p-2">
+                        <label for="numeroIdentificacion" class="mb-0 p-0">Razón social:
+                        </label>
+                        <input type="text" class="form-control form-control-sm" placeholder="Razón social"
+                            name="numeroIdentificacion">
+                    </div>
+                    <div class="form-group col-md-6 col-sm-6 d-flex flex-column mb-0 p-2">
+                        <label for="numeroIdentificacion" class="mb-0 p-0">Dirección:
+                        </label>
+                        <input type="text" class="form-control form-control-sm" placeholder="Dirección"
+                            name="numeroIdentificacion">
+                    </div>
+                    <div class="form-group col-md-6 col-sm-6 d-flex flex-column mb-0 p-2">
+                        <label for="serie" class="mb-0 p-0 primary-sintad">Ubigéo :
+                        </label>
+                        <div class="d-flex p-0 group-input-button">
+                            <input type="text" class="form-control form-control-sm rounded-left use-input"
+                                placeholder="Código" id="Ubigéo">
+                            <button type="button" class="btn btn-f1 p-0 rounded-0 use-button" (click)="findSerie()">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </button>
+                            <input type="text" class="form-control form-control-sm col-8 ml-1"
+                                placeholder="Número de documento">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6 col-sm-6 d-flex flex-column mb-0 p-2">
+
+                    </div>
+                    <div class="form-group col-md-6 col-sm-6 d-flex flex-column mb-0 p-2">
+                        <label for="serie" class="mb-0 p-0 primary-sintad">Código
+                            partida : </label>
+                        <div class="d-flex p-0 group-input-button">
+                            <input type="text" class="form-control form-control-sm rounded-left use-input"
+                                placeholder="Código" id="Ubigéo">
+                            <button type="button" class="btn btn-f1 p-0 rounded-0 use-button" (click)="findSerie()">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </button>
+                            <input type="text" class="form-control form-control-sm col-8 ml-1"
+                                placeholder="Nombre del punto de partida">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6 col-sm-6 d-flex flex-column mb-0 p-2">
+                        <label for="numeroIdentificacion" class="mb-0 p-0">Dirección:
+                        </label>
+                        <input type="text" class="form-control form-control-sm" placeholder="Dirección"
+                            name="numeroIdentificacion">
+                    </div>
+                    <div class="form-group col-md-6 col-sm-12 d-flex flex-column mb-0 p-2">
+                        <label for="serie" class="mb-0 p-0 primary-sintad">Ubigéo :
+                        </label>
+                        <div class="d-flex p-0 group-input-button">
+                            <input type="text" class="form-control form-control-sm rounded-left use-input"
+                                placeholder="Código" id="Ubigéo">
+                            <button type="button" class="btn btn-f1 p-0 rounded-0 use-button" (click)="findSerie()">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </button>
+                            <input type="text" class="form-control form-control-sm col-8 ml-1"
+                                placeholder="Número de documento">
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </ngb-tab>
+        <ngb-tab>
+            <ng-template ngbTabTitle class="nav-item">Destinatario / Punto de Llegada</ng-template>
+            <ng-template ngbTabContent>
+                <div class="row">
+                    <div class="form-group col-md-4 col-sm-4 d-flex flex-column mb-0 p-2">
+                        <label for="codigodestinatario" class="mb-0 p-0 primary-sintad">Código del
+                            Destinatario : </label>
+                        <div class="d-flex p-0 group-input-button">
+                            <input type="text" class="form-control form-control-sm use-input" placeholder="Código"
+                                name="codigoRemitente">
+                            <button type="button" class="btn btn-f1 p-0 rounded-0 use-button" (click)="findSerie()">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4 col-sm-4 d-flex flex-column mb-0 p-2">
+                        <label for="tipoIdentificacion" class="mb-0 p-0">Tipo
+                            Identificación: </label>
+                        <input type="text" class="form-control form-control-sm" placeholder="Tipo Identificación"
+                            name="tipoIdentificacion">
+                    </div>
+                    <div class="form-group col-md-4 col-sm-4 d-flex flex-column mb-0 p-2">
+                        <label for="numeroIdentificacion" class="mb-0 p-0">Número
+                            Identificación:
+                        </label>
+                        <input type="text" class="form-control form-control-sm" placeholder="Número Identificación"
+                            name="numeroIdentificacion">
+                    </div>
+                    <div class="form-group col-md-6 col-sm-6 d-flex flex-column mb-0 p-2">
+                        <label for="numeroIdentificacion" class="mb-0 p-0">Razón social:
+                        </label>
+                        <input type="text" class="form-control form-control-sm" placeholder="Razón social"
+                            name="numeroIdentificacion">
+                    </div>
+                    <div class="form-group col-md-6 col-sm-6 d-flex flex-column mb-0 p-2">
+                        <label for="numeroIdentificacion" class="mb-0 p-0">Dirección:
+                        </label>
+                        <input type="text" class="form-control form-control-sm" placeholder="Dirección"
+                            name="numeroIdentificacion">
+                    </div>
+                    <div class="form-group col-md-6 col-sm-6 d-flex flex-column mb-0 p-2">
+                        <label for="serie" class="mb-0 p-0 primary-sintad">Ubigéo :
+                        </label>
+                        <div class="d-flex p-0 group-input-button">
+                            <input type="text" class="form-control form-control-sm rounded-left use-input"
+                                placeholder="Código" id="Ubigéo">
+                            <button type="button" class="btn btn-f1 p-0 rounded-0 use-button" (click)="findSerie()">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </button>
+                            <input type="text" class="form-control form-control-sm col-8 ml-1"
+                                placeholder="Número de documento">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6 col-sm-6 d-flex flex-column mb-0 p-2">
+                    </div>
+                    <div class="form-group col-md-6 col-sm-6 d-flex flex-column mb-0 p-2">
+                        <label for="serie" class="mb-0 p-0 primary-sintad">Código
+                            partida : </label>
+                        <div class="d-flex p-0 group-input-button">
+                            <input type="text" class="form-control form-control-sm rounded-left use-input"
+                                placeholder="Código" id="Ubigéo">
+                            <button type="button" class="btn btn-f1 p-0 rounded-0 use-button" (click)="findSerie()">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </button>
+                            <input type="text" class="form-control form-control-sm col-8 ml-1"
+                                placeholder="Nombre del punto de partida">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6 col-sm-6 d-flex flex-column mb-0 p-2">
+                        <label for="numeroIdentificacion" class="mb-0 p-0">Dirección:
+                        </label>
+                        <input type="text" class="form-control form-control-sm" placeholder="Dirección"
+                            name="numeroIdentificacion">
+                    </div>
+                    <div class="form-group col-md-6 col-sm-12 d-flex flex-column mb-0 p-2">
+                        <label for="serie" class="mb-0 p-0 primary-sintad">Ubigéo :
+                        </label>
+                        <div class="d-flex p-0 group-input-button">
+                            <input type="text" class="form-control form-control-sm rounded-left use-input"
+                                placeholder="Código" id="Ubigéo">
+                            <button type="button" class="btn btn-f1 p-0 rounded-0 use-button" (click)="findSerie()">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </button>
+                            <input type="text" class="form-control form-control-sm col-8 ml-1"
+                                placeholder="Número de documento">
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </ngb-tab>
+        <ngb-tab>
+            <ng-template ngbTabTitle>Información de la Carga</ng-template>
+            <ng-template ngbTabContent>
+                <div class="row">
+                    <div class="form-group col-md-4 col-sm-4 d-flex flex-column mb-0 p-2">
+                        <label for="tipoServicio" class="mb-0 p-0 primary-sintad">Tipo Mercadería:
+                        </label>
+                        <select class="form-control form-control-sm" name="tipoServicio">
+                            <option class="sumax-option" value="" selected="true">Seleccione</option>
+                            <option class="sumax-option">General</option>
+                            <option class="sumax-option">Seca</option>
+                            <option class="sumax-option">Refrigerada</option>
+                            <option class="sumax-option">Peligrosa</option>
+                            <option class="sumax-option">Otros</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4 col-sm-4 d-flex flex-column mb-0 p-2">
+                        <label for="tipoIdentificacion" class="mb-0 p-0">Cliente: </label>
+                        <input type="text" class="form-control form-control-sm" placeholder="Cliente"
+                            name="tipoIdentificacion">
+                    </div>
+                    <div class="form-group col-md-4 col-sm-4 d-flex flex-column mb-0 p-2">
+                        <label for="numeroIdentificacion" class="mb-0 p-0">Referencia:
+                        </label>
+                        <input type="text" class="form-control form-control-sm" placeholder="Referencias del Cliente"
+                            name="numeroIdentificacion">
+                    </div>
+                    <div class="form-group col-md-6 col-sm-6 d-flex flex-column mb-0 p-2">
+                        <label for="numeroIdentificacion" class="mb-0 p-0">Descripción:
+                        </label>
+                        <input type="text" class="form-control form-control-sm"
+                            placeholder="Descripción de la Mercadería" name="numeroIdentificacion">
+                    </div>
+                    <div class="form-group col-md-6 col-sm-6 d-flex flex-column mb-0 p-2">
+                        <label for="numeroIdentificacion" class="mb-0 p-0">Nro. Contenedor:
+                        </label>
+                        <input type="text" class="form-control form-control-sm" placeholder="Nro Contenedor"
+                            name="numeroIdentificacion">
+                    </div>
+                    <div class="form-group col-md-6 col-sm-6 d-flex flex-column mb-0 p-2">
+                        <label for="numeroIdentificacion" class="mb-0 p-0">Capacidad:
+                        </label>
+                        <input type="text" class="form-control form-control-sm" placeholder="Nro Contenedor"
+                            name="numeroIdentificacion">
+                    </div>
+                    <div class="form-group col-md-6 col-sm-6 d-flex flex-column mb-0 p-2">
+                        <label for="tipoServicio" class="mb-0 p-0 primary-sintad">Tipo Contenedor:
+                        </label>
+                        <select class="form-control form-control-sm" name="tipoServicio">
+                            <option class="sumax-option" value="" selected="true">Seleccione</option>
+                            <option class="sumax-option">ST</option>
+                            <option class="sumax-option">HQ</option>
+                            <option class="sumax-option">NOR</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-12 col-sm-12 d-flex flex-column mb-0 p-2">
+                        <label for="numeroIdentificacion" class="mb-0 p-0">Observación:
+                        </label>
+                        <input type="text" class="form-control form-control-sm" placeholder="Observación"
+                            name="numeroIdentificacion">
+                    </div>
+                </div>
+            </ng-template>
+        </ngb-tab>
+    </ngb-tabset>
+    </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="onNoClick()">Cancelar</button>
+        <button type="button" class="btn btn-primary" cdkFocusInitial>Agregar</button>
+    </div>
+</div>

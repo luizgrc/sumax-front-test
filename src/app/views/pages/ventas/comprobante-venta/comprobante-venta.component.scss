@@ -1,0 +1,51 @@
+mat-icon:hover {
+	cursor: pointer;
+}
+
+// .group-input-button .use-input {
+// 	padding-right: 25px;
+// 	padding-left: 8px;
+// }
+
+// .group-input-button .use-button {
+// 	margin-left: -24px;
+// }
+
+.kt-form .kt-form__filtration,
+.kt-form .kt-form__group-action {
+	margin: 0 0 0px;
+}
+
+.gestionar-container {
+    display: flex;
+    flex-direction: column;
+    overflow-x: scroll;
+}
+
+.table-main {
+    // overflow: auto;
+    // max-height: 500px;
+    width: 100%;
+    min-width: 1400px;
+    }
+
+    .mat-column-razSocCliente{
+        width: 100%;
+        min-width: 250px;
+        word-wrap: none!important;
+    }
+
+    // .mat-cell{
+    //     margin-right: 2rem;
+    // }
+    
+.button-icon{
+    transform: scale(1.6);
+}
+
+mat-expansion-panel-header{
+    height: 40px!important;
+}
+kt-portlet-header{
+    min-height: 35px!important;
+}

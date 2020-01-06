@@ -1,0 +1,129 @@
+<div class="kt-form container-fluid">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 p-1 border-top">
+            <h6 class="mt-2">Datos del documento</h6>
+            <div class="row px-3">
+                <div class="form-group col-md-3 col-sm-3 d-flex flex-column mb-0 p-2">
+                    <label for="local" class="mb-0 p-0">Local Anexo :
+                    </label>
+                    <select class="form-control form-control-sm" name="local" id="local">
+                        <option class="sumax-option" value="" selected>Seleccione</option>
+						<option class="sumax-option" *ngFor="let sciOficina of oficinas" [(ngValue)]="sciOficina.idOficina">
+                            {{ sciOficina.sciEstablecimientoAnexo.codigo }} - {{sciOficina.nombre}}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3 col-sm-3 d-flex flex-column mb-0 p-2">
+                    <label for="codigoSerie" class="mb-0 pl-1">Serie : </label>
+                    <div class="d-flex p-0 group-input-button">
+                        <input type="text" class="form-control form-control-sm col-4 ml-1" [ngbTypeahead]="search"
+                            (focus)="focus$.next($event.target.value)" (click)="click$.next($event.target.value)"
+                            #instance="ngbTypeahead" [inputFormatter]="inputFormatter"
+                            [resultFormatter]="resultFormatter" placeholder="Serie" container="body"
+                            [(ngModel)]="serieSelected">
+                        <input id="numeroCorrelativo" type="text" class="form-control form-control-sm ml-1"
+                            placeholder="Número de documento">
+                    </div>
+                </div>
+                <div class="form-group col-md-3 col-sm-3 d-flex flex-column mb-0 p-2">
+                    <label for="tipoVenta" class="mb-0 p-0">Tipo de venta :</label>
+                    <select class="form-control form-control-sm" name="tipoVenta" id="tipoVenta">
+                        <option class="sumax-option" value="" selected>Seleccione</option>
+						<option class="sumax-option" *ngFor="let sveTipoVenta of tiposVenta" [(ngValue)]="sveTipoVenta.idTipoVenta">
+                            {{ sveTipoVenta.nombre }}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3 col-sm-3 d-flex flex-column mb-0 p-2">
+                    <label for="moneda" class="mb-0 p-0">Moneda : </label>
+                    <select class="form-control form-control-sm" name="moneda" id="moneda">
+                        <option class="sumax-option" value="" selected>Seleccione</option>
+						<option class="sumax-option" *ngFor="let tbMoneda of monedas" [(ngValue)]="tbMoneda.idMoneda">
+                            {{ tbMoneda.nombre }}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2 col-sm-2 d-flex flex-column mb-0 p-2">
+                    <label for="fchEmision" class="mb-0 p-0">Fecha Emisión : </label>
+                    <div class="d-flex p-0 group-input-button">
+                        <input class="form-control form-control-sm rounded-left use-input" placeholder="yyyy-mm-dd"
+                            [(ngModel)]="final" ngbDatepicker #d="ngbDatepicker" id="fchEmision" name="fchEmision">
+                        <button type="button" class="btn btn-f1 p-0 rounded-0 use-button" (click)="d.toggle()"><i
+                                class="la la-calendar" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+                <div class="form-group col-md-2 col-sm-2 d-flex flex-column mb-0 p-2">
+                    <label for="impuesto" class="mb-0 p-0">Impuesto : </label>
+                    <input type="text" class="form-control form-control-sm" disabled placeholder="Impuesto"
+                        id="impuesto" name="impuesto" [(ngModel)]="impuesto">
+                </div>
+                <div class="form-group col-md-2 col-sm-2 d-flex flex-column mb-0 p-2">
+                    <label for="tipoCambio" class="mb-0 p-0">Tipo de cambio :
+                    </label>
+                    <input type="text" class="form-control form-control-sm" placeholder="Tipo de cambio" id="tipoCambio"
+                        name="tipoCambio" >
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 p-1 border-top">
+            <h6 class="mt-2">Datos del cliente</h6>
+            <div class="row px-3">
+                <div class="form-group col-md-2 col-sm-6 d-flex flex-column mb-0 p-2">
+                    <label for="serie" class="mb-0 p-0">Código del cliente : </label>
+                    <div class="d-flex p-0 group-input-button">
+                        <input type="text" class="form-control form-control-sm rounded-left use-input"
+                            placeholder="Código" id="serie">
+                        <button type="button" class="btn btn-f1 p-0 rounded-0 use-button" (click)="findSerie()">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group col-md-2 col-sm-2 d-flex flex-column mb-0 p-2">
+                    <label for="serie" class="mb-0 p-0">Tipo identificación :
+                    </label>
+                    <input type="text" class="form-control form-control-sm" disabled placeholder="RUC/DNI/ETC">
+                </div>
+                <div class="form-group col-md-2 col-sm-2 d-flex flex-column mb-0 p-2">
+                    <label for="serie" class="mb-0 p-0">Número identificación :
+                    </label>
+                    <input type="text" class="form-control form-control-sm" disabled placeholder="12345678901">
+                </div>
+                <div class="form-group col-md-6 col-sm-6 col-12 d-flex flex-column mb-0 p-2">
+                    <label for="serie" class="mb-0 p-0">Razón social : </label>
+                    <input type="text" class="form-control form-control-sm" placeholder="Razón social">
+                </div>
+                <div class="form-group col-md-6 col-sm-6 col-12 d-flex flex-column mb-0 p-2">
+                    <label for="serie" class="mb-0 p-0">Dirección: </label>
+                    <input type="text" class="form-control form-control-sm" placeholder="Dirección">
+                </div>
+                <div class="form-group col-md-6 col-sm-6 col-12 d-flex flex-column mb-0 p-2">
+                    <label for="serie" class="mb-0 p-0">Ubigeo : </label>
+                    <div class="d-flex p-0 group-input-button">
+                        <input type="text" class="form-control form-control-sm rounded-left use-input"
+                            placeholder="Código" id="Ubigeo">
+                        <button type="button" class="btn btn-f1 p-0 rounded-0 use-button" (click)="findSerie()">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                        <input type="text" class="form-control form-control-sm col-8 ml-1"
+                            placeholder="Nombre de Ubigeo">
+                    </div>
+                </div>
+                <div class="form-group col-md-2 col-sm-3 d-flex flex-column mb-0 p-2">
+                    <label for="tipoPago" class="mb-0 p-0">Tipo de Pago: </label>
+                    <select class="form-control form-control-sm" name="tipoPago" id="tipoPago">
+                        <option value="1">Pago Adelantado</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2 col-sm-3 d-flex flex-column mb-0 p-2">
+                    <label for="plazo" class="mb-0 p-0">Días de Plazo: </label>
+                    <input type="text" class="form-control form-control-sm" placeholder="Plazo" name="plazo">
+                </div>
+                <div class="form-group col-lg-2 col-md-3 col-sm-3 d-flex flex-column mb-0 p-2">
+                    <label for="vencimiento" class="mb-0 p-0">Fecha de Vencimiento: </label>
+                    <input type="text" class="form-control form-control-sm" placeholder="Fecha de Vencimiento"
+                        name="vencimiento">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

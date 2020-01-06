@@ -1,0 +1,99 @@
+<div class="row">
+    <div class="form-group col-md-2 col-sm-4 d-flex flex-column mb-0 p-2">
+        <label for="codigoRemitente" class="mb-0 p-0 primary-sintad">Cliente: </label>
+        <div class="d-flex p-0 group-input-button">
+            <input type="text" class="form-control form-control-sm use-input" placeholder="Código"
+                name="codigoRemitente">
+            <button type="button" class="btn btn-f1 p-0 rounded-0 use-button" (click)="findSerie()">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="form-group col-md-2 col-sm-4 d-flex flex-column mb-0 p-2">
+        <label for="tipoIdentificacion" class="mb-0 p-0">Tipo Identificación: </label>
+        <input type="text" class="form-control form-control-sm" placeholder="Tipo Identificación"
+            name="tipoIdentificacion">
+    </div>
+    <div class="form-group col-md-2 col-sm-4 d-flex flex-column mb-0 p-2">
+        <label for="numeroIdentificacion" class="mb-0 p-0">#. Identificación: </label>
+        <input type="text" class="form-control form-control-sm" placeholder="Número Identificación"
+            name="numeroIdentificacion">
+    </div>
+
+    <div class="form-group col-md-6 col-sm-6 d-flex flex-column mb-0 p-2">
+        <label for="numeroIdentificacion" class="mb-0 p-0">Razón social: </label>
+        <input type="text" class="form-control form-control-sm" placeholder="Razón social" name="numeroIdentificacion">
+    </div>
+
+    <div class="form-group col-md-6 col-sm-6 d-flex flex-column mb-0 p-2">
+        <label for="numeroIdentificacion" class="mb-0 p-0">Dirección: </label>
+        <input type="text" class="form-control form-control-sm" placeholder="Dirección" name="numeroIdentificacion">
+    </div>
+
+    <div class="form-group col-md-6 col-sm-4 d-flex flex-column mb-0 p-2">
+        <label for="refCliente" class="mb-0 p-0">Ref. Cliente: </label>
+        <input type="text" class="form-control form-control-sm" placeholder="Referencia" name="refCliente">
+    </div>
+    <div class="form-group col-md-3 col-sm-4 d-flex flex-column mb-0 p-2">
+        <label for="tipoServicio" class="mb-0 p-0 primary-sintad">Tipo Servicio: </label>
+        <select class="form-control form-control-sm" name="tipoServicio">
+            <option class="sumax-option" value="" selected="true">Seleccione</option>
+            <option class="sumax-option">Directa</option>
+            <option class="sumax-option">Distribución</option>
+            <option class="sumax-option">Traslado</option>
+        </select>
+    </div>
+
+    <div class="form-group col-md-3 col-sm-4 d-flex flex-column mb-0 p-2">
+        <label for="tipoMovimiento" class="mb-0 p-0 primary-sintad">Tipo Movimiento: </label>
+        <select class="form-control form-control-sm" name="tipoMovimiento">
+            <option class="sumax-option" value="" selected="true">Seleccione</option>
+            <option class="sumax-option">Ingreso</option>
+            <option class="sumax-option">Salida</option>
+        </select>
+    </div>
+
+    <div class="form-group col-md-3 col-sm-4 d-flex flex-column mb-0 p-2">
+        <label for="viaTransporte" class="mb-0 p-0 primary-sintad">Vía Transporte: </label>
+        <select class="form-control form-control-sm" name="viaTransporte">
+            <option class="sumax-option" value="" selected="true">Seleccione</option>
+            <option class="sumax-option">Marítima</option>
+            <option class="sumax-option">Aerea</option>
+        </select>
+    </div>
+
+    <div class="form-group col-md-3 col-sm-4 d-flex flex-column mb-0 p-2">
+        <label for="tipoEnvio" class="mb-0 p-0 primary-sintad">Tipo Envío: </label>
+        <select class="form-control form-control-sm" name="tipoEnvio">
+            <option class="sumax-option" value="" selected="true">Seleccione</option>
+            <option class="sumax-option">Contenedor</option>
+            <option class="sumax-option">Carga Suelta</option>
+        </select>
+    </div>
+
+    <div class="form-group col-md-2 col-sm-4 d-flex flex-column mb-0 p-2">
+        <label for="totalBulto" class="mb-0 p-0">Total Bulto: </label>
+        <input type="text" class="form-control form-control-sm text-right" placeholder="0.00" name="totalBulto">
+    </div>
+
+    <div class="form-group col-md-2 col-sm-4 d-flex flex-column mb-0 p-2">
+        <label for="totalPesoBruto" class="mb-0 p-0">Peso Bruto: </label>
+        <input type="text" class="form-control form-control-sm text-right" placeholder="0.00" name="totalPesoBruto">
+    </div>
+
+    <div class="form-group col-md-2 col-sm-4 d-flex flex-column mb-0 p-2">
+        <label for="Observaciones" class="mb-0 p-0">Observaciones: </label>
+        <input type="text" class="form-control form-control-sm" placeholder="Observaciones" name="Observaciones">
+    </div>
+    <div class="form-group col-md-2 col-sm-4 d-flex flex-column mb-0 p-2">
+        <label for="fchEmision" class="mb-0 p-0">Fch. Emisión : </label>
+        <div class="d-flex p-0 group-input-button">
+            <input class="form-control form-control-sm rounded-left use-input" placeholder="yyyy-mm-dd"
+                [(ngModel)]="final" ngbDatepicker #d="ngbDatepicker" id="fchEmision" name="fchEmision">
+            <button type="button" class="btn btn-f1 p-0 rounded-0 use-button" (click)="d.toggle()"><i
+                    class="la la-calendar" aria-hidden="true"></i></button>
+        </div>
+    </div>
+
+</div>

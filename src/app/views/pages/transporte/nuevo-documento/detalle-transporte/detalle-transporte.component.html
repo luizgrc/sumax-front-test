@@ -1,0 +1,5 @@
+<ag-grid-angular #agGrid id="myGrid" style="width: 100%;" class="ag-theme-balham" [rowData]="rowData"
+    [columnDefs]="columnDefs" [domLayout]="domLayout" (gridReady)="onGridReady($event)"
+    [loadingCellRenderer]="customLoadingCellRenderer" [loadingCellRendererParams]="loadingCellRendererParams"
+    [pagination]="true" [suppressRowClickSelection]="true" [rowSelection]="rowSelection">
+</ag-grid-angular>

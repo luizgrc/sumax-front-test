@@ -1,0 +1,64 @@
+<kt-portlet>
+    <kt-portlet-header [class]="'kt-portlet__head--lg'">
+        <ng-container ktPortletTitle>
+            <h3 class="kt-portlet__head-title text-primary">
+                <strong>Registro de Factura</strong>
+            </h3>
+        </ng-container>
+        <ng-container ktPortletTools>
+            <button mat-icon-button color="primary" matTooltip="Guardar documento">
+                <mat-icon class="button-icon">done</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" matTooltip="Cancelar registro">
+                <mat-icon class="button-icon">close</mat-icon>
+            </button>
+        </ng-container>
+    </kt-portlet-header>
+    <kt-portlet-body>
+        <mat-accordion class="example-headers-align">
+            <mat-expansion-panel *ngFor="let p of expandedParts" [(ngModel)]="p.expanded" [expanded]="p.expanded" (click)="toggle(p.expanded)" ngDefaultControl>
+                <mat-expansion-panel-header>
+                    <mat-panel-title class="my-auto">
+                        <strong>{{p.title}}</strong>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <kt-datos-generales *ngIf="p.id == 1"></kt-datos-generales>
+                <kt-dcto-relacionado *ngIf="p.id == 2"></kt-dcto-relacionado>
+                <kt-table-detalle *ngIf="p.id == 3"></kt-table-detalle>
+                <kt-observaciones *ngIf="p.id == 4"></kt-observaciones>
+            </mat-expansion-panel>
+
+            <!-- <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title class="my-auto">
+                        Datos generales del documento
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <kt-datos-generales></kt-datos-generales>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Detalle de documento
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <kt-table-detalle></kt-table-detalle>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Total de documento
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <mat-form-field>
+                    <input matInput placeholder="Date" [matDatepicker]="picker" (focus)="picker.open()" readonly>
+                </mat-form-field>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-expansion-panel> -->
+        </mat-accordion>
+    </kt-portlet-body>
+</kt-portlet>

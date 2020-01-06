@@ -1,0 +1,78 @@
+<div class="kt-form__filtration mb-0">
+    <div class="row px-3">
+        <div class="form-group col-md-3 col-sm-6 col-12 d-flex flex-column mb-0 py-2">
+            <label for="nroOrden" class="mb-0 p-0 primary-sintad">Nro Orden : </label>
+            <input type="text" class="form-control form-control-sm" placeholder="Número Orden" id="nroOrden"
+                name="nroOrden">
+        </div>
+        <div class="form-group col-md-3 col-sm-6 col-12 d-flex flex-column mb-0 py-2">
+            <label for="tipoFecha" class="mb-0 p-0 primary-sintad">Tipo Fecha : </label>
+            <select class="form-control form-control-sm" id="tipoFecha">
+                <option class="sumax-option" value="" selected="true">Seleccione</option>
+                <option class="sumax-option">Fecha Emisión</option>
+                <option class="sumax-option">Fecha Entrega / Carguío</option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-3 col-sm-6 col-12 d-flex flex-column mb-0 py-2">
+            <label for="fchInicial" class="mb-0 p-0 primary-sintad">Fecha Incial : </label>
+            <div class="d-flex p-0 group-input-button">
+                <input class="form-control form-control-sm rounded-left use-input" container="body"
+                    placeholder="yyyy-mm-dd" name="fchInicial" ngbDatepicker #fchInicial="ngbDatepicker"
+                    id="fchInicial">
+                <button type="button" class="btn btn-f1 p-0 rounded-0 use-button"><i class="la la-calendar"
+                        aria-hidden="true" (click)="fchInicial.toggle()"></i></button>
+            </div>
+        </div>
+
+        <div class="form-group col-md-3 col-sm-6 col-12 d-flex flex-column mb-0 py-2">
+            <label for="fchFinal" class="mb-0 p-0 primary-sintad">Fecha Final : </label>
+            <div class="d-flex p-0 group-input-button">
+                <input class="form-control form-control-sm rounded-left use-input" container="body"
+                    placeholder="yyyy-mm-dd" name="fchFinal" ngbDatepicker #fchFinal="ngbDatepicker" id="fchFinal">
+                <button type="button" class="btn btn-f1 p-0 rounded-0 use-button"><i class="la la-calendar"
+                        aria-hidden="true" (click)="fchFinal.toggle()"></i></button>
+            </div>
+        </div>
+
+        <div class="form-group col-md-3 col-sm-6 col-12 d-flex flex-column mb-0 py-2">
+            <label for="tipoServicio" class="mb-0 p-0 primary-sintad">Tipo Servicio : </label>
+            <select class="form-control form-control-sm" id="tipoServicio">
+                <option class="sumax-option" value="" selected="true">Seleccione</option>
+                <option class="sumax-option">Directa</option>
+                <option class="sumax-option">Distribución</option>
+                <option class="sumax-option">Traslado</option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-3 col-sm-6 col-12 d-flex flex-column mb-0 py-2">
+            <label for="tipoMovimiento" class="mb-0 p-0 primary-sintad">Tipo Movimiento : </label>
+            <select class="form-control form-control-sm" id="tipoMovimiento">
+                <option class="sumax-option" value="" selected="true">Seleccione</option>
+                <option class="sumax-option">Ingreso</option>
+                <option class="sumax-option">Salida</option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-3 col-sm-6 col-12 d-flex flex-column mb-0 py-2">
+            <label for="viaTransporte" class="mb-0 p-0 primary-sintad">Vía de Transporte : </label>
+            <select class="form-control form-control-sm" id="viaTransporte">
+                <option class="sumax-option" value="" selected="true">Seleccione</option>
+                <option class="sumax-option">Marítima</option>
+                <option class="sumax-option">Aérea</option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-3 col-sm-6 col-12 d-flex flex-column mb-2 py-2">
+            <label for="tipoEnvio" class="mb-0 p-0 primary-sintad">Tipo de Envío : </label>
+            <select class="form-control form-control-sm" id="tipoEnvio">
+                <option class="sumax-option" value="" selected="true">Seleccione</option>
+                <option class="sumax-option">Contenedor</option>
+                <option class="sumax-option">Carga Suelta</option>
+            </select>
+        </div>
+        <div class="form-group col-md-12 d-flex flex-column mb-2 py-0 px-2">
+            <button class="col-12 btn btn-outline-secondary btn-sm btn-block mb-0 p-2"><i class="fa fa-search" aria-hidden="true"></i>Realizar Filtro</button>
+        </div>
+    </div>
+</div>
