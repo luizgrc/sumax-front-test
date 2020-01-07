@@ -5,8 +5,6 @@ import { AddDetalleTransporteComponent } from './transporte/nuevo-documento/add-
 import { DetalleTransporteComponent } from './transporte/nuevo-documento/detalle-transporte/detalle-transporte.component';
 import { CabeceraTransporteComponent } from './transporte/nuevo-documento/cabecera-transporte/cabecera-transporte.component';
 import { NuevoDocumentoComponent } from './transporte/nuevo-documento/nuevo-documento.component';
-import { FiltroTransporteComponent } from './transporte/gestion-transporte/filtro-transporte/filtro-transporte.component';
-import { GestionTransporteComponent } from './transporte/gestion-transporte/gestion-transporte.component';
 import { TotalesVentaComponent } from './ventas/registrar-venta/totales-venta/totalesVenta.component';
 import { DctoRelacionadoComponent } from './ventas/registrar-venta/dcto-relacionado/dcto-relacionado.component';
 import { DatosGeneralesComponent } from './ventas/registrar-venta/datos-generales/datos-generales.component';
@@ -34,24 +32,24 @@ import { AgGridModule } from 'ag-grid-angular';
 import { TableDetalleComponent } from './ventas/registrar-venta/table-detalle/table-detalle.component';
 import { ObservacionesComponent } from './ventas/registrar-venta/observaciones/observaciones.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { TransporteModule } from './transporte/transporte.module';
 
 @NgModule({
-	declarations: [ComprobanteVentaComponent, 
-					RegistrarVentaComponent,
-					DatosGeneralesComponent, 
-					DctoRelacionadoComponent, 
-					TableDetalleComponent, 
-					TotalesVentaComponent,
-					GestionTransporteComponent,
-					FiltroTransporteComponent,
-					NuevoDocumentoComponent,
-					CabeceraTransporteComponent,
-					DetalleTransporteComponent,
-					AddDetalleTransporteComponent,
-					PreviewTransporteComponent,
-					ObservacionesComponent,
-					InicioComponent
-				],
+	declarations: [
+		ComprobanteVentaComponent,
+		RegistrarVentaComponent,
+		DatosGeneralesComponent,
+		DctoRelacionadoComponent,
+		TableDetalleComponent,
+		TotalesVentaComponent,
+		NuevoDocumentoComponent,
+		CabeceraTransporteComponent,
+		DetalleTransporteComponent,
+		AddDetalleTransporteComponent,
+		PreviewTransporteComponent,
+		ObservacionesComponent,
+		InicioComponent
+	],
 	exports: [],
 	imports: [
 		CommonModule,
@@ -83,9 +81,10 @@ import { InicioComponent } from './inicio/inicio.component';
 		NgbModalModule,
 		NgOptionHighlightModule,
 		NgbTabsetModule,
-		AgGridModule.withComponents([])
+		AgGridModule.withComponents([]),
+		TransporteModule
 	],
-	providers: [{provide: NgbDateAdapter, useClass: NgbDateNativeAdapter}],
+	providers: [{ provide: NgbDateAdapter, useClass: NgbDateNativeAdapter }],
 	entryComponents: [AddDetalleTransporteComponent],
 })
 export class PagesModule {

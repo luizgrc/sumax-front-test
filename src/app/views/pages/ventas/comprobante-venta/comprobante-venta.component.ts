@@ -56,7 +56,8 @@ export class ComprobanteVentaComponent implements OnInit {
 	private overlayLoadingTemplate;
 	private rowSelection;
 
-	constructor(private route: ActivatedRoute, private router: Router,
+	constructor(
+		private route: ActivatedRoute, private router: Router,
 		private sveVentaService: SveVentaService,
 		private sveEstadoService: SveEstadoService,
 		private sciUsuarioService: SciUsuarioService,
@@ -86,8 +87,8 @@ export class ComprobanteVentaComponent implements OnInit {
 		this.defaultColDef = { resizable: true };
 		this.rowSelection = 'multiple';
 		this.overlayLoadingTemplate =
-		  '<span class="ag-overlay-loading-center">Cargando información</span>';
-		
+			'<span class="ag-overlay-loading-center">Cargando información</span>';
+
 	}
 
 	ngOnInit() {
@@ -130,11 +131,11 @@ export class ComprobanteVentaComponent implements OnInit {
 		this.searchVenta.idTipoComprobante = this.idTipoComprobante;
 	}
 
-	initDates(){
+	initDates() {
 		this.searchVenta.fchDesde = moment().subtract(100, 'days').toDate();
-		this.datepickerInicio.navigateTo({ year: 2019, month: 11, day: 1});
+		this.datepickerInicio.navigateTo({ year: 2019, month: 11, day: 1 });
 		this.searchVenta.fchHasta = moment().toDate();
-		this.datepickerFinal.navigateTo({ year: 2019, month: 12, day: 26});
+		this.datepickerFinal.navigateTo({ year: 2019, month: 12, day: 26 });
 	}
 
 	listarEstados() {
@@ -169,7 +170,7 @@ export class ComprobanteVentaComponent implements OnInit {
 			});
 			this.configGrid(listVentas);
 			this.gridApi.hideOverlay();
-		});    
+		});
 		this.searchVenta.idEstado = (this.searchVenta.idEstado == null ? 0 : this.searchVenta.idEstado);
 		this.searchVenta.idSerie = (this.searchVenta.idSerie == null ? 0 : this.searchVenta.idSerie);
 		this.searchVenta.idUsuario = (this.searchVenta.idUsuario == null ? 0 : this.searchVenta.idUsuario);
@@ -184,10 +185,10 @@ export class ComprobanteVentaComponent implements OnInit {
 	}
 
 	findVentas() {
-		if(this.clienteSelected != undefined){
-			if(this.clienteSelected.idCliente != undefined){
+		if (this.clienteSelected != undefined) {
+			if (this.clienteSelected.idCliente != undefined) {
 				this.searchVenta.idCliente = this.clienteSelected.idCliente;
-			}else{
+			} else {
 				this.searchVenta.razonSocialCliente = this.clienteSelected;
 			}
 		}
@@ -198,12 +199,12 @@ export class ComprobanteVentaComponent implements OnInit {
 		this.router.navigateByUrl('/registrar');
 	}
 
-	editarDocumento(){
+	editarDocumento() {
 		let docSelected = this.gridApi.getSelectedNodes();
-		if(docSelected.length > 1){
+		if (docSelected.length > 1) {
 			console.log(docSelected);
 			alert("Debe seleccionar solo 1 documento");
-		}else{
+		} else {
 			let venta = docSelected[0].data;
 			this.router.navigateByUrl(`/editar/${venta.idVenta}`);
 		}
@@ -226,7 +227,7 @@ export class ComprobanteVentaComponent implements OnInit {
 
 	onFirstDataRendered(params) {
 		params.api.sizeColumnsToFit();
-	  }
+	}
 
 	//Autocomplete
 	inputFormatter(value: any) {
@@ -250,4 +251,4 @@ export class ComprobanteVentaComponent implements OnInit {
 		);
 	}
 
-}  
+}

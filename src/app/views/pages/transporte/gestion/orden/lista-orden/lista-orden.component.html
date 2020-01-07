@@ -1,0 +1,53 @@
+<kt-portlet>
+	<kt-portlet-header [class]="'kt-portlet__head--lg'">
+
+		<ng-container ktPortletTitle>
+			<h3 class="kt-portlet__head-title">
+				Gestión de Ordenes
+			</h3>
+		</ng-container>
+
+		<ng-container ktPortletTools>
+			<button mat-icon-button color="basic" matTooltip="Nuevo Documento" (click)="nuevoDocumento()">
+				<mat-icon class="button-icon">insert_drive_file</mat-icon>
+			</button>
+			<button mat-icon-button color="primary" matTooltip="Editar documento seleccionado" (click)="editarDocumento()">
+				<mat-icon class="button-icon">edit</mat-icon>
+			</button>
+			<button mat-icon-button color="warn" matTooltip="Eliminar documento(s) seleccionado(s)">
+				<mat-icon class="button-icon">delete</mat-icon>
+			</button>
+			<!-- <button mat-raised-button (click)="nuevoDocumento()" color="primary" type="button">Nueva Orden</button> -->
+		</ng-container>
+	</kt-portlet-header>
+	<kt-portlet-body>
+		<!-- FILTROS Y ACCIONES MASIVAS -->
+		<div class="kt-form mb-2">
+			<mat-accordion>
+				<mat-expansion-panel [expanded]="'true'">
+					<mat-expansion-panel-header>
+						<mat-panel-title>
+							Filtros
+						</mat-panel-title>
+						<mat-panel-description>
+							Seleccione los filtros que desea aplicar a la busqueda
+						</mat-panel-description>
+					</mat-expansion-panel-header>
+					<lista-orden-filtro></lista-orden-filtro>
+				</mat-expansion-panel>
+			</mat-accordion>
+		</div>
+		<!-- TABLA -->
+		<mat-card>
+			<div class="mat-table__wrapper">
+				<div class="table-responsive">
+					<!-- table -->
+					<div class="p-3">
+						<ag-grid-angular #agGrid id="myGrid" style="width: 100%;" class="ag-theme-balham" [rowData]="rowData" [columnDefs]="columnDefs" [domLayout]="domLayout" (gridReady)="onGridReady($event)" [loadingCellRenderer]="customLoadingCellRenderer" [loadingCellRendererParams]="loadingCellRendererParams" [pagination]="true" [suppressRowClickSelection]="true" [rowSelection]="rowSelection" (firstDataRendered)="onFirstDataRendered($event)">
+						</ag-grid-angular>
+					</div>
+				</div>
+			</div>
+		</mat-card>
+	</kt-portlet-body>
+</kt-portlet>

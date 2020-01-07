@@ -1,25 +1,24 @@
 import { InicioComponent } from './views/pages/inicio/inicio.component';
 import { NuevoDocumentoComponent } from './views/pages/transporte/nuevo-documento/nuevo-documento.component';
-import { GestionTransporteComponent } from './views/pages/transporte/gestion-transporte/gestion-transporte.component';
 import { RegistrarVentaComponent } from './views/pages/ventas/registrar-venta/registrar-venta.component';
 // Angular
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 // Components
-import {BaseComponent} from './views/theme/base/base.component';
-import {ErrorPageComponent} from './views/theme/content/error-page/error-page.component';
+import { BaseComponent } from './views/theme/base/base.component';
+import { ErrorPageComponent } from './views/theme/content/error-page/error-page.component';
 // Auth
-import {AuthGuard} from './core/auth';
+import { AuthGuard } from './core/auth';
 import { ComprobanteVentaComponent } from './views/pages/ventas/comprobante-venta/comprobante-venta.component';
 
 const routes: Routes = [
 	// {path: 'auth', loadChildren: () => import('app/views/pages/auth/auth.module').then(m => m.AuthModule)},
-	{path: 'inicio', component: InicioComponent},
+	{ path: 'inicio', component: InicioComponent },
 
 	{
 		path: '',
 		component: BaseComponent,
-		canActivate: [AuthGuard],
+		// canActivate: [AuthGuard],
 		children: [
 			{
 				path: 'comprobante-venta/:cod',
@@ -29,17 +28,22 @@ const routes: Routes = [
 				path: 'registrar',
 				component: RegistrarVentaComponent
 			},
+			// {
+			// 	path: 'transporte',
+			// 	component: GestionTransporteComponent
+			// },
+			// {
+			// 	path: 'nueva-orden',
+			// 	component: NuevoDocumentoComponent
+			// },
+			// {
+			// 	path: 'inicio',
+			// 	component: InicioComponent
+			// },
 			{
 				path: 'transporte',
-				component: GestionTransporteComponent
-			},
-			{
-				path: 'nueva-orden',
-				component: NuevoDocumentoComponent
-			},
-			{
-				path: 'inicio',
-				component: InicioComponent
+				// component : ListaOrdenComponent,
+				loadChildren: () => import('app/views/pages/transporte/transporte.module').then(m => m.TransporteModule)
 			},
 			// {
 			// 	path: 'dashboard',
@@ -47,7 +51,7 @@ const routes: Routes = [
 			// },
 			{
 				path: 'mail',
-				loadChildren: () => import('app/views/pages/apps/mail/mail.module').then(m => m.MailModule),
+				loadChildren: () => import('app/views/pages/apps/mail/mail.module').then(m => m.MailModule)
 			},
 			{
 				path: 'ecommerce',
@@ -83,13 +87,13 @@ const routes: Routes = [
 					desc: 'Tranquilo ratón, aún no desarrollamos esto.<br> Please, contact Almircar.',
 				},
 			},
-			{path: 'error/:type', component: ErrorPageComponent},
-			{path: '', redirectTo: '/comprobante-venta/01', pathMatch: 'full'},
-			{path: '**', redirectTo: 'error/403', pathMatch: 'full'},
+			{ path: 'error/:type', component: ErrorPageComponent },
+			{ path: '', redirectTo: 'transporte/orden', pathMatch: 'full' },
+			{ path: '**', redirectTo: 'error/403', pathMatch: 'full' },
 		],
 	},
 
-	{path: '**', redirectTo: 'error/403', pathMatch: 'full'},
+	{ path: '**', redirectTo: 'error/403', pathMatch: 'full' },
 ];
 
 @NgModule({

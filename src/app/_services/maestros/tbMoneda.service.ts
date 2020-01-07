@@ -4,15 +4,15 @@ import { environment } from './../../../environments/environment';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class TbMonedaService {
 
-  url: string = `${environment.HOST_MAESTROS}/TbMonedas`;
+	url: string = `${environment.HOST_MAESTROS}/TbMonedas`;
 
-  constructor(private http: HttpClient) { }
+	constructor(private http: HttpClient) { }
 
-  findAllByEstado(estado: boolean){
-    return this.http.get<TbMoneda[]>(`${this.url}/findAllByEstado/${estado}`);
-  }
+	findAllByEstado(estado: boolean) {
+		return this.http.get<TbMoneda[]>(`${this.url}/findAllByEstado/${estado}`);
+	}
 }

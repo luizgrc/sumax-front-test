@@ -4,15 +4,15 @@ import { environment } from './../../../environments/environment';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class TbTipoImpuestoService {
 
-  url: string = `${environment.HOST_MAESTROS}/TbTipoImpuestos`;
+	url: string = `${environment.HOST_MAESTROS}/TbTipoImpuestos`;
 
-  constructor(private http: HttpClient) { }
+	constructor(private http: HttpClient) { }
 
-  getDefaulTipoImpuesto(){
-    return this.http.get<TbTipoImpuesto>(`${this.url}/`);
-  }
+	getDefaulTipoImpuesto() {
+		return this.http.get<TbTipoImpuesto>(`${this.url}/`);
+	}
 }
